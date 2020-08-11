@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+            
+    <title>SAPER</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+  
+    <script>
+          //Widok
+        function startGame() {
+                let select_control = document.getElementById("game_level")
+				let level = select_control.options[select_control.selectedIndex].value
+            let rows = 10
+            let cols = 10
+            let max_bombs = 15
+            switch(level) {
+              case "beginner":
+                alert("Zaczyansz grę jako lama")
+                rows = 8
+                cols = 8
+                max_bombs = 10
+                break;
+                                    case "advanced":
+                alert("Zaczyansz grę jako pro")
+                rows = 16
+                cols = 16
+                max_bombs = 40
+                break;
+                case "random":
+                alert("Zaczyansz grę custom")
+                let elementRows = document.getElementById("input-rows");
+                let elementCols = document.getElementById("input-cols");
+                let elementBombs = document.getElementById("input-bombs");
+                 rows = elementRows.value; //przekształcam na wartości
+                cols = elementCols.value;                
+                max_bombs = elementBombs.value;
+                break;
+            }    
+            main.createBoard(rows, cols, max_bombs) //, restart(), gameOver(isWin), reveal(oi, oj), getBombCount(i, j)             
+          }
+    </script>
+    </head>
+  <body oncontextmenu="return false;">
+    <h1>SAPER</h1>
+    <form>
+        <div id="board"></div>
+      </form>
+      <button onclick="startGame()">Start</button>
+<select id="game_level">
+        <option value="beginner">Beginner</option>
+        <option value="advanced">Advanced</option>
+        <option value="random">Random</option>
+      </select>
+    <div id=controls>
+        <label>Rows:<input type=text name="rows" id="input-rows" value="8"  /></label>
+        <label>Columns<input type=text name="cols" id="input-cols" value="8"  /></label>
+        <label>Bombs<input type=text name="bombs" id="input-bombs" value="4"  /></label>
+        <input type=button value="Generate/Reset" onclick="createBoard(ROWS, COLS)">
+</div>
+
+
+    <div id="board"></div>
+   
+<div id=ui></div>
+    <script src="main.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>

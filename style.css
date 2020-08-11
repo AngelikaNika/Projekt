@@ -1,0 +1,52 @@
+body {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+}
+
+#board {
+    border: 1px solid rgb(238, 238, 238);
+    display: inline-block;
+}
+
+.row {
+    font-size: 0px;
+}
+
+.col {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color:  rgb(12, 250, 12);
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    vertical-align: top;
+    color: black;
+    font-size: 20px;
+    line-height: 50px;
+    transition: all 1.0s;
+}
+
+/*.col.hidden.bomb {
+    background-color: red;
+}*/
+
+.col.hidden {
+    background-color: #8c59c7;
+    cursor: pointer;
+}
+
+.col.hidden.flag{
+    background-color: blue; 
+}
+
+.col.hidden:hover {
+    background-color: rgb(252, 10, 10);
+}
+
+.row:last-child .col {
+    border-bottom: none;
+}
+
+.row .col:last-child {
+border-right: none;
+}
